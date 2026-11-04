@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { GreenRibbedCurtain } from "@/components/canvas/green-ribbed-curtain";
-
 import { Magnetic } from "@/components/ui/magnetic";
 
 interface HeroSectionProps {
@@ -14,13 +13,16 @@ interface HeroSectionProps {
   onOpenInquiry?: () => void;
 }
 
-export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: HeroSectionProps) {
+export function HeroSection({ onOpenInquiry }: HeroSectionProps) {
   const headlineRef = useRef<HTMLDivElement | null>(null);
 
-  // 3D Spatial Mouse Parallax for Headline using GSAP quickTo
+  // 3D Spatial Mouse Parallax for Headline using GSAP quickTo (desktop only)
   useEffect(() => {
     const el = headlineRef.current;
     if (!el) return;
+
+    // Skip mousemove attachment on touch/small devices
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const xTiltTo = gsap.quickTo(el, "rotateY", { duration: 0.9, ease: "power3.out" });
     const yTiltTo = gsap.quickTo(el, "rotateX", { duration: 0.9, ease: "power3.out" });
@@ -55,11 +57,11 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-between pt-7 pb-6 px-6 sm:px-10 lg:px-14 overflow-hidden select-none bg-[#020602] perspective-[1200px]">
+    <section className="relative min-h-[100svh] w-full flex flex-col justify-between pt-5 sm:pt-7 pb-6 sm:pb-8 px-4 sm:px-10 lg:px-14 overflow-x-hidden select-none bg-[#020602] perspective-[1200px]">
       {/* 1. 3D Pleated Green Ribbed Curtain Canvas with Bottom Pitch Black Fade */}
       <GreenRibbedCurtain />
 
-      {/* 2. Top Bar: Pennant Swallowtail Flag Emblem (Balanced Studio Header) */}
+      {/* 2. Top Bar: Balanced Studio Header Across All Screen Sizes */}
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -67,13 +69,13 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
         className="relative z-20 w-full flex items-center justify-between pt-1"
       >
         {/* Left Corner: AI MediaTech Brand Colophon */}
-        {/* <div className="w-32 sm:w-48 flex items-center justify-start flex-shrink-0">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-black/35 backdrop-blur-sm text-zinc-300 font-mono-code text-[11px] tracking-wider uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8ee034]" />
+        <div className="flex items-center justify-start flex-shrink-0">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 rounded-full border border-white/10 bg-black/40 backdrop-blur-md text-zinc-300 font-mono-code text-[10px] sm:text-[11px] tracking-wider uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-lime-400" />
             <span className="font-medium text-white tracking-widest">AI MEDIATECH</span>
             <span className="text-zinc-600 hidden md:inline text-[10px]">LAB</span>
           </div>
-        </div> */}
+        </div>
 
         {/* Center Iconic Swallowtail Pennant Flag */}
         <div className="flex items-center justify-center">
@@ -86,7 +88,7 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
                 className="relative p-1"
               >
                 <svg
-                  className="w-8 h-8 text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)]"
+                  className="w-7 h-7 sm:w-8 sm:h-8 text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)]"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,37 +96,37 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
                   {/* Swallowtail Flag body with inward notch on right */}
                   <path d="M4 3h16l-4.5 6 4.5 6H4V3z" fill="white" />
                   {/* Inner vertical slit */}
-                  <line x1="8" y1="3" x2="8" y2="15" stroke="#0a240c" strokeWidth="1.8" />
+                  <line x1="8" y1="3" x2="8" y2="15" stroke="#a3e635" strokeWidth="1.8" />
                 </svg>
               </motion.div>
             </Link>
           </Magnetic>
         </div>
 
-        {/* Right Corner: Minimal Studio Worldwide Availability Badge */}
-        <div className="w-32 sm:w-48 flex justify-end items-center flex-shrink-0">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-black/35 backdrop-blur-sm text-zinc-400 font-mono-code text-[11px] tracking-wider uppercase">
+        {/* Right Corner: Studio Worldwide Availability Badge */}
+        <div className="flex justify-end items-center flex-shrink-0">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 rounded-full border border-white/10 bg-black/40 backdrop-blur-md text-zinc-400 font-mono-code text-[10px] sm:text-[11px] tracking-wider uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="hidden sm:inline">Worldwide</span>
-            <span className="sm:hidden">Live</span>
+            <span className="hidden min-[420px]:inline">Worldwide</span>
+            <span className="min-[420px]:hidden">Live</span>
           </div>
         </div>
       </motion.div>
 
-      {/* 4. Monumental Headline: Primary (Lausanne) + Secondary (Manier) Typography */}
+      {/* 3. Monumental Headline: Fluid Typography Tailored for Mobile & Desktop */}
       <div
         ref={headlineRef}
         style={{ transformStyle: "preserve-3d" }}
-        className="relative z-10 max-w-5xl mx-auto w-full my-auto py-10 sm:py-14 will-change-transform"
+        className="relative z-10 max-w-5xl mx-auto w-full my-auto py-6 sm:py-12 will-change-transform"
       >
-        <div className="flex flex-col text-white tracking-[-0.035em] leading-[1.02]">
+        <div className="flex flex-col text-white tracking-[-0.03em] sm:tracking-[-0.035em] leading-[1.08] sm:leading-[1.02]">
           {/* Line 1: Primary Font - Lausanne (Grotesque Sans-Serif) */}
           <div className="overflow-hidden">
             <motion.div
               initial={{ y: "115%", opacity: 0 }}
               animate={{ y: "0%", opacity: 1 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
-              className="font-primary text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-normal text-white"
+              className="font-primary text-[1.85rem] min-[360px]:text-[2.15rem] min-[400px]:text-[2.45rem] min-[480px]:text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-normal text-white"
             >
               <span>From Neural Concept</span>
             </motion.div>
@@ -136,7 +138,7 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
               initial={{ y: "115%", opacity: 0 }}
               animate={{ y: "0%", opacity: 1 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
-              className="font-secondary text-[2.9rem] sm:text-6xl md:text-7xl lg:text-[5.9rem] xl:text-[6.6rem] font-normal text-white pl-8 sm:pl-28 md:pl-44 lg:pl-56 xl:pl-64 py-0.5 sm:py-1"
+              className="font-secondary text-[2rem] min-[360px]:text-[2.3rem] min-[400px]:text-[2.6rem] min-[480px]:text-[2.9rem] sm:text-6xl md:text-7xl lg:text-[5.9rem] xl:text-[6.6rem] font-normal text-white pl-3 min-[400px]:pl-6 sm:pl-28 md:pl-44 lg:pl-56 xl:pl-64 py-0.5 sm:py-1"
             >
               <span>to Master Cinema</span>
             </motion.div>
@@ -148,21 +150,21 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
               initial={{ y: "115%", opacity: 0 }}
               animate={{ y: "0%", opacity: 1 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.44 }}
-              className="font-primary text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-normal text-white"
+              className="font-primary text-[1.85rem] min-[360px]:text-[2.15rem] min-[400px]:text-[2.45rem] min-[480px]:text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] font-normal text-white"
             >
               <span>elevating media to the</span>
             </motion.div>
           </div>
 
-          {/* Line 4: Secondary Font - Manier (Italic Serif) + [ Book a call ] Pill Button */}
+          {/* Line 4: Secondary Font - Manier (Italic Serif) + [ Commission shoot ] Pill Button */}
           <div className="overflow-hidden">
             <motion.div
               initial={{ y: "115%", opacity: 0 }}
               animate={{ y: "0%", opacity: 1 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-              className="flex flex-wrap items-baseline sm:items-center gap-3 sm:gap-6 md:gap-8 pl-8 sm:pl-28 md:pl-44 lg:pl-56 xl:pl-64 pt-0.5 sm:pt-1"
+              className="flex flex-wrap items-center gap-2.5 sm:gap-6 md:gap-8 pl-3 min-[400px]:pl-6 sm:pl-28 md:pl-44 lg:pl-56 xl:pl-64 pt-1 sm:pt-1.5"
             >
-              <span className="font-secondary text-[2.9rem] sm:text-6xl md:text-7xl lg:text-[5.9rem] xl:text-[6.6rem] font-normal text-white">
+              <span className="font-secondary text-[2rem] min-[360px]:text-[2.3rem] min-[400px]:text-[2.6rem] min-[480px]:text-[2.9rem] sm:text-6xl md:text-7xl lg:text-[5.9rem] xl:text-[6.6rem] font-normal text-white">
                 remarkable
               </span>
 
@@ -170,7 +172,7 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
               <Magnetic strength={0.45}>
                 <motion.button
                   whileHover={{
-                    scale: 1.07,
+                    scale: 1.06,
                     backgroundColor: "rgba(255, 255, 255, 1)",
                     color: "#000000",
                     boxShadow: "0 10px 30px -5px rgba(255, 255, 255, 0.45)",
@@ -185,7 +187,7 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
                       if (el) el.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="font-primary inline-flex items-center justify-center px-6 sm:px-7 py-2.5 sm:py-3 rounded-full border border-white/70 bg-black/15 text-white text-xs sm:text-sm font-normal backdrop-blur-sm cursor-pointer shadow-lg"
+                  className="font-primary inline-flex items-center justify-center px-4 py-2 min-[400px]:px-5 min-[400px]:py-2.5 sm:px-7 sm:py-3 rounded-full border border-white/70 bg-black/25 text-white text-[11px] min-[400px]:text-xs sm:text-sm font-normal backdrop-blur-md cursor-pointer shadow-lg hover:border-white transition-colors"
                 >
                   <span>Commission shoot</span>
                 </motion.button>
@@ -195,32 +197,40 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
         </div>
       </div>
 
-      {/* 5. Page Subtitle Texts (Stay permanently on the hero page, not inside nav dock) */}
+      {/* 4. Page Subtitles: Optimized for both Desktop Grids and Mobile Viewports */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pb-12 pointer-events-none"
+        className="relative z-10 w-full max-w-7xl mx-auto pb-4 sm:pb-6 pointer-events-none"
       >
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 text-[12px] leading-snug text-white/70 font-primary">
-          {/* Left Text (aligned above Work column) */}
+        {/* Desktop 5-Column Grid */}
+        <div className="hidden sm:grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 text-[12px] leading-snug text-white/70 font-primary">
           <div className="col-span-1 hidden md:block">
             <p>Virtual production, cinema &amp; neural art,</p>
             <p>directed by masters you actually talk to</p>
           </div>
 
-          {/* Spacer columns */}
           <div className="hidden md:block col-span-1" />
           <div className="hidden md:block col-span-1" />
 
-          {/* Right Text (aligned above About column) */}
-          <div className="col-span-1 hidden sm:block">
+          <div className="col-span-1">
             <p>For studios &amp; brands who need it</p>
             <p>mastered, not workshopped</p>
           </div>
 
-          {/* Far Right spacer */}
           <div className="hidden md:block col-span-1" />
+        </div>
+
+        {/* Mobile Viewport Studio Badge & Statement */}
+        <div className="flex sm:hidden flex-col items-center justify-center text-center space-y-2 pt-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[10px] font-mono-code text-zinc-300 uppercase tracking-widest backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-lime-400" />
+            <span>Virtual Production // AI Lab</span>
+          </div>
+          <p className="text-[11px] text-white/60 font-primary font-light tracking-wide max-w-xs">
+            Directed by masters you actually talk to. Mastered, not workshopped.
+          </p>
         </div>
       </motion.div>
     </section>
