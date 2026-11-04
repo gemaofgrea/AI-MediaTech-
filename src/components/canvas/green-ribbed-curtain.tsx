@@ -37,15 +37,15 @@ export function GreenRibbedCurtain({
     const light = {
       x: width * 0.22,
       y: isTopFade ? height * 0.7 : height * 0.42,
-      radius: Math.min(Math.max(width * 0.30, 340), 440),
-      intensity: 0.9,
+      radius: Math.max(width * 0.38, 480),
+      intensity: 1.0,
       scaleX: 1.0,
     };
 
     // Silky smooth GSAP quickTo tracking
-    const xTo = gsap.quickTo(light, "x", { duration: 0.75, ease: "power3.out" });
-    const yTo = gsap.quickTo(light, "y", { duration: 0.75, ease: "power3.out" });
-    const scaleXTo = gsap.quickTo(light, "scaleX", { duration: 0.45, ease: "power2.out" });
+    const xTo = gsap.quickTo(light, "x", { duration: 0.85, ease: "power3.out" });
+    const yTo = gsap.quickTo(light, "y", { duration: 0.85, ease: "power3.out" });
+    const scaleXTo = gsap.quickTo(light, "scaleX", { duration: 0.5, ease: "power2.out" });
 
     let lastX = light.x;
 
@@ -54,7 +54,7 @@ export function GreenRibbedCurtain({
       const dims = getDimensions();
       width = canvas.width = dims.w;
       height = canvas.height = dims.h;
-      light.radius = Math.min(Math.max(width * 0.30, 340), 440);
+      light.radius = Math.max(width * 0.38, 480);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -67,7 +67,7 @@ export function GreenRibbedCurtain({
       lastX = mouseX;
       xTo(mouseX);
       yTo(mouseY);
-      scaleXTo(1 + Math.min(vx * 0.01, 0.35));
+      scaleXTo(1 + Math.min(vx * 0.012, 0.45));
     };
 
     const handleTouchMove = (e: TouchEvent) => {
@@ -112,10 +112,10 @@ export function GreenRibbedCurtain({
         const x = i * ribWidth + waveOffset;
         const ribCenterX = x + ribWidth * 0.5;
 
-        // Radial light falloff from mouse spotlight (theatrical cone focus)
+        // Radial light falloff from mouse spotlight
         const dxSpot = (ribCenterX - spotX) / spotRadius;
         const dySpot = ((isTopFade ? height * 0.65 : height * 0.42) - spotY) / spotRadius;
-        const spotDistSq = dxSpot * dxSpot + dySpot * dySpot * 0.65;
+        const spotDistSq = dxSpot * dxSpot + dySpot * dySpot;
         const spotFactor = Math.max(0, 1 - Math.sqrt(spotDistSq));
 
         // Radial light falloff from ambient beam
@@ -124,24 +124,22 @@ export function GreenRibbedCurtain({
         const ambDistSq = dxAmb * dxAmb + dyAmb * dyAmb;
         const ambFactor = Math.max(0, 1 - Math.sqrt(ambDistSq));
 
-        // 10% reduced brightness factor (multiplied by 0.90)
-        const illumination = Math.min(1.65, (ambFactor * 0.95 + spotFactor * 1.30) * 0.90);
+        const illumination = Math.min(1.85, ambFactor * 1.05 + spotFactor * 1.38);
 
         // Cylinder Lighting Model
         const ribGrad = ctx.createLinearGradient(x, 0, x + ribWidth, 0);
 
-        // 10% reduced RGB brightness values
-        const litR = Math.floor(8 + illumination * 102);
-        const litG = Math.floor(25 + illumination * 153);
-        const litB = Math.floor(8 + illumination * 40);
+        const litR = Math.floor(9 + illumination * 114);
+        const litG = Math.floor(28 + illumination * 170);
+        const litB = Math.floor(9 + illumination * 44);
 
         const shadowR = Math.max(2, Math.floor(litR * 0.15));
-        const shadowG = Math.max(5, Math.floor(litG * 0.19));
+        const shadowG = Math.max(6, Math.floor(litG * 0.19));
         const shadowB = Math.max(2, Math.floor(litB * 0.15));
 
-        const crestR = Math.min(235, Math.floor(litR * 1.32 + 12));
-        const crestG = Math.min(235, Math.floor(litG * 1.25 + 19));
-        const crestB = Math.min(235, Math.floor(litB * 1.20 + 10));
+        const crestR = Math.min(255, Math.floor(litR * 1.4 + 14));
+        const crestG = Math.min(255, Math.floor(litR * 1.34 + 22));
+        const crestB = Math.min(255, Math.floor(litB * 1.3 + 12));
 
         ribGrad.addColorStop(0, `rgb(${shadowR}, ${shadowG}, ${shadowB})`);
         ribGrad.addColorStop(0.2, `rgb(${crestR}, ${crestG}, ${crestB})`);
@@ -156,32 +154,20 @@ export function GreenRibbedCurtain({
       // Additive Screen blending for volumetric spotlight glows
       ctx.globalCompositeOperation = "screen";
 
-      // 1. Mouse Interactive Spotlight (Theatrical Fresnel Cone with focused hotspot, 10% reduced brightness)
+      // 1. Mouse Interactive Spotlight Beam (Original vibrant electric lime glow)
       ctx.save();
       ctx.translate(spotX, spotY);
-      ctx.scale(light.scaleX, 1.05);
-
+      ctx.scale(light.scaleX, 1);
       const spotGlow = ctx.createRadialGradient(0, 0, 0, 0, 0, spotRadius);
-      spotGlow.addColorStop(0, "rgba(205, 255, 95, 0.52)");      // Crisp hot center (-10% brightness)
-      spotGlow.addColorStop(0.22, "rgba(160, 246, 58, 0.39)");   // Focused inner spotlight cone
-      spotGlow.addColorStop(0.48, "rgba(85, 205, 36, 0.22)");    // Mid falloff
-      spotGlow.addColorStop(0.76, "rgba(30, 118, 20, 0.09)");    // Penumbra
-      spotGlow.addColorStop(1, "rgba(0, 0, 0, 0)");              // Feathered outer boundary
-
+      spotGlow.addColorStop(0, "rgba(188, 255, 68, 0.58)");
+      spotGlow.addColorStop(0.35, "rgba(112, 228, 42, 0.38)");
+      spotGlow.addColorStop(0.7, "rgba(42, 142, 26, 0.16)");
+      spotGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = spotGlow;
       ctx.fillRect(-spotRadius, -spotRadius, spotRadius * 2, spotRadius * 2);
-
-      // Subtle theatrical Fresnel aperture ring
-      const ringGlow = ctx.createRadialGradient(0, 0, spotRadius * 0.42, 0, 0, spotRadius * 0.68);
-      ringGlow.addColorStop(0, "rgba(0, 0, 0, 0)");
-      ringGlow.addColorStop(0.5, "rgba(165, 250, 60, 0.065)");
-      ringGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
-      ctx.fillStyle = ringGlow;
-      ctx.fillRect(-spotRadius, -spotRadius, spotRadius * 2, spotRadius * 2);
-
       ctx.restore();
 
-      // 2. Ambient Theatrical Stage Beam (10% reduced brightness)
+      // 2. Ambient Theatrical Stage Beam (Original vibrant glow)
       const ambGlow = ctx.createRadialGradient(
         ambX,
         ambY,
@@ -190,9 +176,9 @@ export function GreenRibbedCurtain({
         ambY,
         ambRadius
       );
-      ambGlow.addColorStop(0, "rgba(148, 224, 52, 0.41)");  // -10% from 0.46
-      ambGlow.addColorStop(0.4, "rgba(82, 182, 32, 0.23)"); // -10% from 0.26
-      ambGlow.addColorStop(0.75, "rgba(23, 92, 20, 0.09)"); // -10% from 0.10
+      ambGlow.addColorStop(0, "rgba(164, 248, 58, 0.46)");
+      ambGlow.addColorStop(0.4, "rgba(92, 202, 36, 0.26)");
+      ambGlow.addColorStop(0.75, "rgba(26, 102, 22, 0.1)");
       ambGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = ambGlow;
       ctx.fillRect(0, 0, width, height);
