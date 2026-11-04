@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { Preloader } from "@/components/ui/preloader";
 import { FloatingDock } from "@/components/layout/floating-dock";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -30,6 +31,9 @@ export default function Home() {
     <div className="relative min-h-screen bg-[#09090b] text-[#f4f4f5] flex flex-col selection:bg-lime-400 selection:text-black">
       {/* Interactive Custom Cursor Follower */}
       <CustomCursor />
+
+      {/* Cinematic Studio Preloader Sequence */}
+      <Preloader />
 
       {/* Main Experience */}
       <main className="flex-1">
