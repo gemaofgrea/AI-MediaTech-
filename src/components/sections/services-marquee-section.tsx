@@ -228,7 +228,7 @@ export function ServicesMarqueeSection() {
       </motion.div>
 
       {/* 2. Monumental Interactive Services Typography Rows (Unified Computer Design Adjusted for All Screens) */}
-      <div className="w-full max-w-7xl mx-auto my-auto space-y-2.5 sm:space-y-4 md:space-y-6">
+      <div className="w-full max-w-8xl mx-auto my-auto space-y-2.5 sm:space-y-4 md:space-y-6">
         {SERVICES_LIST.map((item, idx) => {
           const isHovered = hoveredId === item.id;
 
@@ -251,9 +251,8 @@ export function ServicesMarqueeSection() {
               {/* Left Column Small Category Tag */}
               <div className="w-12 sm:w-24 md:w-28 lg:w-36 text-left flex-shrink-0">
                 <span
-                  className={`font-primary text-[10px] sm:text-xs md:text-sm lg:text-base font-normal tracking-tight sm:tracking-normal transition-colors duration-200 block truncate ${
-                    isHovered ? "text-white" : "text-[#8a8a8a] group-hover:text-white"
-                  }`}
+                  className={`font-primary text-[10px] sm:text-xs md:text-sm lg:text-base font-normal tracking-tight sm:tracking-normal transition-colors duration-200 block truncate ${isHovered ? "text-white" : "text-[#8a8a8a] group-hover:text-white"
+                    }`}
                 >
                   {item.leftTag}
                 </span>
@@ -268,11 +267,10 @@ export function ServicesMarqueeSection() {
 
                     {/* Refined Uppercase Title in #8a8a8a, turning white on hover */}
                     <span
-                      className={`font-primary text-[11px] min-[380px]:text-xs sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-normal tracking-[-0.02em] sm:tracking-[-0.03em] uppercase leading-[1.12] transition-all duration-200 text-center break-words ${
-                        isHovered
+                      className={`font-primary text-[11px] min-[380px]:text-xs sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-normal tracking-[-0.02em] sm:tracking-[-0.03em] uppercase leading-[1.12] transition-all duration-200 text-center break-words ${isHovered
                           ? "text-white sm:translate-x-2"
                           : "text-[#8a8a8a] group-hover:text-white"
-                      }`}
+                        }`}
                     >
                       {item.title}
                     </span>
@@ -283,9 +281,8 @@ export function ServicesMarqueeSection() {
               {/* Right Column Small Discipline Tag */}
               <div className="w-12 sm:w-24 md:w-28 lg:w-36 text-right flex-shrink-0">
                 <span
-                  className={`font-primary text-[10px] sm:text-xs md:text-sm lg:text-base font-normal tracking-tight sm:tracking-normal transition-colors duration-200 block truncate ${
-                    isHovered ? "text-white" : "text-[#8a8a8a] group-hover:text-white"
-                  }`}
+                  className={`font-primary text-[10px] sm:text-xs md:text-sm lg:text-base font-normal tracking-tight sm:tracking-normal transition-colors duration-200 block truncate ${isHovered ? "text-white" : "text-[#8a8a8a] group-hover:text-white"
+                    }`}
                 >
                   {item.rightTag}
                 </span>
