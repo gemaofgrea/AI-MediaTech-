@@ -38,7 +38,7 @@ export function GreenRibbedCurtain({
       x: width * 0.22,
       y: isTopFade ? height * 0.7 : height * 0.42,
       radius: Math.max(width * 0.38, 480),
-      intensity: 1.0,
+      intensity: 0.8,
       scaleX: 1.0,
     };
 
@@ -124,7 +124,8 @@ export function GreenRibbedCurtain({
         const ambDistSq = dxAmb * dxAmb + dyAmb * dyAmb;
         const ambFactor = Math.max(0, 1 - Math.sqrt(ambDistSq));
 
-        const illumination = Math.min(1.85, ambFactor * 1.05 + spotFactor * 1.38);
+        // Illumination: mouse hover spotlight factor reduced by 20% (1.38 * 0.8 = 1.10)
+        const illumination = Math.min(1.85, ambFactor * 1.05 + spotFactor * 1.10);
 
         // Cylinder Lighting Model
         const ribGrad = ctx.createLinearGradient(x, 0, x + ribWidth, 0);
@@ -154,14 +155,14 @@ export function GreenRibbedCurtain({
       // Additive Screen blending for volumetric spotlight glows
       ctx.globalCompositeOperation = "screen";
 
-      // 1. Mouse Interactive Spotlight Beam (Original vibrant electric lime glow)
+      // 1. Mouse Interactive Spotlight Beam (Hover light effect reduced by 20%)
       ctx.save();
       ctx.translate(spotX, spotY);
       ctx.scale(light.scaleX, 1);
       const spotGlow = ctx.createRadialGradient(0, 0, 0, 0, 0, spotRadius);
-      spotGlow.addColorStop(0, "rgba(188, 255, 68, 0.58)");
-      spotGlow.addColorStop(0.35, "rgba(112, 228, 42, 0.38)");
-      spotGlow.addColorStop(0.7, "rgba(42, 142, 26, 0.16)");
+      spotGlow.addColorStop(0, "rgba(188, 255, 68, 0.46)");
+      spotGlow.addColorStop(0.35, "rgba(112, 228, 42, 0.30)");
+      spotGlow.addColorStop(0.7, "rgba(42, 142, 26, 0.13)");
       spotGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = spotGlow;
       ctx.fillRect(-spotRadius, -spotRadius, spotRadius * 2, spotRadius * 2);
