@@ -32,15 +32,15 @@ export function TopHeader({ onOpenLeadsHud }: TopHeaderProps) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-bold text-xs text-white group-hover:border-white/30 transition-colors">
-            L
+          <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-bold text-xs text-lime-400 group-hover:border-white/30 transition-colors">
+            AI
           </div>
           <div className="flex items-baseline gap-2">
             <span className="font-semibold text-sm tracking-tight text-white">
-              Atelier Luma
+              AI MediaTech
             </span>
             <span className="font-mono-code text-[11px] text-zinc-500 hidden sm:inline">
-              / MediaTech &amp; Virtual Production
+              / Cinema &amp; Neural Media Platform
             </span>
           </div>
         </Link>

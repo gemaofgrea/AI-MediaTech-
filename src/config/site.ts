@@ -23,10 +23,10 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "ATELIER LUMA",
-  tagline: "Where Generative Vision Meets Cannes-Grade Cinema",
+  name: "AI MediaTech",
+  tagline: "Next-Gen Cinema & Neural Media Production",
   description:
-    "An independent creative atelier directing feature films, high-fashion editorials, virtual LED production volumes, and neural media pipelines for the world's most discerning brands.",
+    "An independent creative AI MediaTech platform directing feature films, high-fashion editorials, virtual LED production volumes, and neural media pipelines for the world's most discerning brands.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   ogImage: "/og.png",
   locations: ["PARIS", "NEW YORK", "TOKYO", "LONDON"],

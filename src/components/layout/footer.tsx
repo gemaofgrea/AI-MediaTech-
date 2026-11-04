@@ -29,15 +29,15 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-7 h-7 rounded-sm bg-[#13131a] border hairline-border flex items-center justify-center">
-                <span className="font-editorial text-sm font-bold text-[#c5a059]">L</span>
+                <span className="font-editorial text-xs font-bold text-lime-400">AI</span>
               </div>
               <span className="font-editorial text-base font-bold tracking-widest text-[#f4f3ef] uppercase">
-                ATELIER LUMA
+                AI MEDIATECH
               </span>
             </div>
 
             <p className="text-xs text-[#8e8d97] font-sans font-light max-w-sm leading-relaxed">
-              An independent creative media atelier directing feature films, haute couture editorials,
+              An independent creative AI MediaTech platform directing feature films, haute couture editorials,
               virtual LED volume production, and generative synthesis for global brands and entertainment studios.
             </p>
 

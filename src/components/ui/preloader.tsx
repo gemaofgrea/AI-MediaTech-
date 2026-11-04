@@ -14,7 +14,7 @@ const TELEMETRY_STEPS = [
   { threshold: 48, text: "MOUNTING 100MP DIGITAL RUNWAY PLATES" },
   { threshold: 72, text: "SYNCHRONIZING FLUX.1 PRO LATENTS" },
   { threshold: 92, text: "CALIBRATING ACES 2065-1 COLOR PIPELINE" },
-  { threshold: 100, text: "ATELIER LUMA // SYSTEM READY" },
+  { threshold: 100, text: "AI MEDIATECH // SYSTEM READY" },
 ];
 
 export function Preloader({ onComplete, minDuration = 2200 }: PreloaderProps) {
@@ -97,7 +97,7 @@ export function Preloader({ onComplete, minDuration = 2200 }: PreloaderProps) {
           <div className="relative z-10 flex items-center justify-between text-xs font-mono-code text-zinc-400 tracking-wider">
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-lime-400 animate-ping" />
-              <span className="text-white font-medium">ATELIER LUMA</span>
+              <span className="text-white font-medium">AI MEDIATECH</span>
               <span className="hidden sm:inline text-zinc-600">//</span>
               <span className="hidden sm:inline text-zinc-500">PARIS • NYC • TOKYO</span>
             </div>

@@ -48,15 +48,15 @@ export function Navbar({ onOpenLeadsHud, onOpenShowreel }: NavbarProps) {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Brand Mark */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 rounded-sm bg-[#13131a] border hairline-border flex items-center justify-center group-hover:border-[#c5a059] transition-colors">
-            <span className="font-editorial text-sm font-bold text-[#c5a059]">L</span>
+          <div className="w-8 h-8 rounded-sm bg-[#13131a] border hairline-border flex items-center justify-center group-hover:border-lime-400 transition-colors">
+            <span className="font-editorial text-xs font-bold text-lime-400">AI</span>
           </div>
           <div className="flex flex-col">
             <span className="font-editorial text-base sm:text-lg font-bold tracking-[0.18em] text-[#f4f3ef] uppercase">
-              ATELIER LUMA
+              AI MEDIATECH
             </span>
             <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8e8d97]">
-              Cinematic & Synthetic Media
+              Cinematic &amp; Synthetic Media Platform
             </span>
           </div>
         </Link>
