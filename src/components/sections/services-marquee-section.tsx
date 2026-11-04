@@ -32,7 +32,7 @@ const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: (active) => (
       <svg
-        className={`w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 inline-block mr-3 sm:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "rotate-45 scale-110 text-white" : "text-[#8a8a8a]"
+        className={`w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12 inline-block mr-1.5 sm:mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "rotate-45 scale-110 text-white" : "text-[#8a8a8a]"
           }`}
         viewBox="0 0 24 24"
         fill="none"
@@ -68,7 +68,7 @@ const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: (active) => (
       <svg
-        className={`w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 inline-block mr-3 sm:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "scale-110 text-white" : "text-[#8a8a8a]"
+        className={`w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12 inline-block mr-1.5 sm:mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "scale-110 text-white" : "text-[#8a8a8a]"
           }`}
         viewBox="0 0 24 24"
         fill="none"
@@ -99,7 +99,7 @@ const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: (active) => (
       <svg
-        className={`w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 inline-block mr-3 sm:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "rotate-90 scale-115 text-white" : "text-[#8a8a8a]"
+        className={`w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12 inline-block mr-1.5 sm:mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "rotate-90 scale-115 text-white" : "text-[#8a8a8a]"
           }`}
         viewBox="0 0 24 24"
         fill="currentColor"
@@ -122,7 +122,7 @@ const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: (active) => (
       <svg
-        className={`w-8 h-6 sm:w-10 sm:h-7 md:w-11 md:h-8 lg:w-13 lg:h-9 inline-block mr-3 sm:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "scale-115 text-white" : "text-[#8a8a8a]"
+        className={`w-4 h-3 sm:w-8 sm:h-5.5 md:w-11 md:h-8 lg:w-13 lg:h-9 inline-block mr-1.5 sm:mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "scale-115 text-white" : "text-[#8a8a8a]"
           }`}
         viewBox="0 0 28 20"
         fill="currentColor"
@@ -146,7 +146,7 @@ const SERVICES_LIST: ServiceItem[] = [
     ],
     icon: (active) => (
       <svg
-        className={`w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 inline-block mr-3 sm:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "rotate-45 scale-110 text-white" : "text-[#8a8a8a]"
+        className={`w-3.5 h-3.5 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12 inline-block mr-1.5 sm:mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 ${active ? "rotate-45 scale-110 text-white" : "text-[#8a8a8a]"
           }`}
         viewBox="0 0 24 24"
         fill="currentColor"
@@ -186,25 +186,25 @@ export function ServicesMarqueeSection() {
         whileInView={{ opacity: 1, x: 0, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-7xl mx-auto mb-12 sm:mb-20 will-change-transform"
+        className="w-full max-w-7xl mx-auto mb-10 sm:mb-16 lg:mb-20 will-change-transform"
       >
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 md:gap-0">
-          {/* Left Column Spacer: Matches the left category tag column width on desktop */}
-          <div className="hidden md:block w-20 lg:w-36 flex-shrink-0" />
+        <div className="flex items-start justify-between">
+          {/* Left Column Spacer: Matches the left tag column width across all screens */}
+          <div className="w-12 sm:w-24 md:w-28 lg:w-36 flex-shrink-0" />
 
           {/* Center Column: Aligns directly with title column */}
-          <div className="flex-1 md:pl-6 lg:pl-16">
+          <div className="flex-1 px-1 sm:pl-6 md:pl-10 lg:pl-16">
             {/* Headline matching screenshot 1:1 with AI MediaTech focus */}
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-normal leading-[1.1] tracking-[-0.03em]">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-normal leading-[1.08] tracking-[-0.03em]">
               <span className="font-secondary italic mr-2 text-white">Services+</span>
               <span className="font-primary text-white">for creative</span>
-              <br className="hidden sm:inline" />{" "}
+              <br />
               <span className="font-primary text-white">media production</span>
             </h2>
 
             {/* Sub-Header Narrative & Action Pill Button */}
             <div className="mt-5 sm:mt-8 flex flex-col md:flex-row md:items-center gap-6 sm:gap-10 lg:gap-12">
-              <p className="font-primary text-xs sm:text-[13px] md:text-sm text-[#8a8a8a] leading-relaxed max-w-md">
+              <p className="font-primary text-[11px] sm:text-[13px] md:text-sm text-[#8a8a8a] leading-relaxed max-w-[380px] md:ml-6 lg:ml-12">
                 Five core disciplines, one master creative team accountable for the master cut. We transform raw briefs into high-impact narrative cinema, virtual production, and generative art.
               </p>
 
@@ -213,7 +213,7 @@ export function ServicesMarqueeSection() {
                 <Magnetic strength={0.35}>
                   <Link
                     href={`/services/${SERVICES_LIST[0].slug}`}
-                    className="font-primary inline-flex items-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-full border border-white/80 hover:border-white bg-black/40 hover:bg-white hover:text-black text-white text-xs sm:text-sm font-medium backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl whitespace-nowrap"
+                    className="font-primary inline-flex items-center justify-center px-5 sm:px-7 py-2 sm:py-3 rounded-full border border-white/80 hover:border-white bg-black/40 hover:bg-white hover:text-black text-white text-[11px] sm:text-sm font-medium backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl whitespace-nowrap"
                   >
                     <span>Explore disciplines ↗</span>
                   </Link>
@@ -222,63 +222,20 @@ export function ServicesMarqueeSection() {
             </div>
           </div>
 
-          {/* Right Column Spacer: Matches the right discipline tag column width on desktop */}
-          <div className="hidden md:block w-20 lg:w-36 flex-shrink-0" />
+          {/* Right Column Spacer: Matches the right tag column width across all screens */}
+          <div className="w-12 sm:w-24 md:w-28 lg:w-36 flex-shrink-0" />
         </div>
       </motion.div>
 
-      {/* ========================================================
-          2A. MOBILE RESPONSIVE CARDS (< md screens)
-         ======================================================== */}
-      <div className="block md:hidden w-full space-y-3.5 my-auto">
-        {SERVICES_LIST.map((item, idx) => (
-          <motion.div
-            key={`mobile-${item.id}`}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, delay: idx * 0.05 }}
-            onClick={() => router.push(`/services/${item.slug}`)}
-            className="group relative p-4 sm:p-5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05] active:scale-[0.98] transition-all duration-200 cursor-pointer space-y-3"
-          >
-            {/* Meta Tags Row */}
-            <div className="flex items-center justify-between font-mono-code text-[11px]">
-              <div className="flex items-center gap-2">
-                <span className="text-lime-400 font-bold">0{idx + 1}</span>
-                <span className="text-zinc-600">//</span>
-                <span className="text-zinc-300 uppercase tracking-wider">{item.leftTag}</span>
-                <span className="text-zinc-600">•</span>
-                <span className="text-zinc-400 uppercase tracking-wider">{item.rightTag}</span>
-              </div>
-              <div className="w-6 h-6 rounded-full bg-white/[0.06] flex items-center justify-center text-zinc-400 group-hover:text-lime-400 group-hover:bg-white/10 transition-colors">
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-
-            {/* Title with Icon */}
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 text-white flex-shrink-0">
-                {item.icon(true)}
-              </div>
-              <h3 className="font-primary text-base sm:text-lg font-normal text-white uppercase tracking-tight leading-snug">
-                {item.title}
-              </h3>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* ========================================================
-          2B. DESKTOP MONUMENTAL TYPOGRAPHY ROWS (>= md screens)
-         ======================================================== */}
-      <div className="hidden md:block w-full mx-auto my-auto space-y-3 sm:space-y-4 md:space-y-6">
+      {/* 2. Monumental Interactive Services Typography Rows (Unified Computer Design Adjusted for All Screens) */}
+      <div className="w-full max-w-7xl mx-auto my-auto space-y-2.5 sm:space-y-4 md:space-y-6">
         {SERVICES_LIST.map((item, idx) => {
           const isHovered = hoveredId === item.id;
 
           return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: 90, y: -20 }}
+              initial={{ opacity: 0, x: 50, y: -15 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{
@@ -289,12 +246,12 @@ export function ServicesMarqueeSection() {
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => router.push(`/services/${item.slug}`)}
-              className="group relative flex items-center justify-center gap-4 py-2 sm:py-3 md:py-4 cursor-pointer transition-all duration-300 border-b border-white/[0.03] hover:border-white/[0.1] will-change-transform"
+              className="group relative flex items-center justify-between gap-1.5 sm:gap-4 py-2 sm:py-3 md:py-4 cursor-pointer transition-all duration-300 border-b border-white/[0.04] hover:border-white/[0.12] will-change-transform"
             >
               {/* Left Column Small Category Tag */}
-              <div className="w-16 sm:w-24 md:w-28 lg:w-36 text-left flex-shrink-0">
+              <div className="w-12 sm:w-24 md:w-28 lg:w-36 text-left flex-shrink-0">
                 <span
-                  className={`font-primary text-xs sm:text-sm md:text-base font-normal transition-colors duration-200 ${
+                  className={`font-primary text-[10px] sm:text-xs md:text-sm lg:text-base font-normal tracking-tight sm:tracking-normal transition-colors duration-200 block truncate ${
                     isHovered ? "text-white" : "text-[#8a8a8a] group-hover:text-white"
                   }`}
                 >
@@ -303,17 +260,17 @@ export function ServicesMarqueeSection() {
               </div>
 
               {/* Center Monumental Typography with Icon */}
-              <div className="flex-1 flex justify-center items-center text-center overflow-hidden">
+              <div className="flex-1 flex justify-center items-center text-center px-1 sm:px-2 min-w-0">
                 <Magnetic strength={0.15}>
-                  <div className="inline-flex items-center">
+                  <div className="inline-flex items-center justify-center max-w-full">
                     {/* Render Icon */}
                     {item.icon(isHovered)}
 
                     {/* Refined Uppercase Title in #8a8a8a, turning white on hover */}
                     <span
-                      className={`font-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-[-0.03em] uppercase leading-[1.08] transition-all duration-200 ${
+                      className={`font-primary text-[11px] min-[380px]:text-xs sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-normal tracking-[-0.02em] sm:tracking-[-0.03em] uppercase leading-[1.12] transition-all duration-200 text-center break-words ${
                         isHovered
-                          ? "text-white translate-x-2 sm:translate-x-3"
+                          ? "text-white sm:translate-x-2"
                           : "text-[#8a8a8a] group-hover:text-white"
                       }`}
                     >
@@ -324,9 +281,9 @@ export function ServicesMarqueeSection() {
               </div>
 
               {/* Right Column Small Discipline Tag */}
-              <div className="w-16 sm:w-24 md:w-28 lg:w-36 text-right flex-shrink-0">
+              <div className="w-12 sm:w-24 md:w-28 lg:w-36 text-right flex-shrink-0">
                 <span
-                  className={`font-primary text-xs sm:text-sm md:text-base font-normal transition-colors duration-200 ${
+                  className={`font-primary text-[10px] sm:text-xs md:text-sm lg:text-base font-normal tracking-tight sm:tracking-normal transition-colors duration-200 block truncate ${
                     isHovered ? "text-white" : "text-[#8a8a8a] group-hover:text-white"
                   }`}
                 >
