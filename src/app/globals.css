@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Lausanne', 'TWK Lausanne', 'Inter', -apple-system, sans-serif;
+    --font-sans: 'Lausanne', 'TWK Lausanne', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-primary: 'Lausanne', 'TWK Lausanne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'Manier', 'Instrument Serif', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-serif-italic: 'Manier', 'Instrument Serif', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --background: #09090b;
+    --foreground: #f4f4f5;
+    --surface-1: #101014;
+    --surface-2: #15151b;
+    --surface-3: #1a1a24;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-medium: rgba(255, 255, 255, 0.16);
+    --accent-green: #22c55e;
+    --accent-lime: #a3e635;
+    --text-muted: #8e8d97;
+    --radius: 0.75rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: #09090b;
+}
+
+body {
+  background-color: #09090b;
+  color: #f4f4f5;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.015em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-primary {
+  font-family: 'Lausanne', 'TWK Lausanne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-secondary {
+  font-family: 'Manier', 'Instrument Serif', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-serif-italic {
+  font-family: 'Manier', 'Instrument Serif', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-mono-tech, .font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle Film Grain Texture Overlay */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar - Sleek minimal slate line */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Editorial Glass & Surface Panels */
+.atelier-card {
+  background: #0c0c11;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.atelier-card:hover {
+  border-color: rgba(197, 160, 89, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.atelier-card-elevated {
+  background: #111117;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Hairline Grid & Divider */
+.hairline-border {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gold Foil Text Shimmer */
+.gold-shimmer {
+  background: linear-gradient(135deg, #f7f3ea 0%, #dfc287 40%, #c5a059 70%, #997532 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.platinum-shimmer {
+  background: linear-gradient(135deg, #ffffff 0%, #e2ded7 50%, #9e9c98 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle Ambient Audio Bar Animation */
+@keyframes audioPulse {
+  0%, 100% { height: 3px; }
+  50% { height: 14px; }
+}
+
+.bar-1 { animation: audioPulse 0.9s ease-in-out infinite; }
+.bar-2 { animation: audioPulse 1.2s ease-in-out infinite 0.2s; }
+.bar-3 { animation: audioPulse 0.7s ease-in-out infinite 0.4s; }
+.bar-4 { animation: audioPulse 1.4s ease-in-out infinite 0.1s; }
