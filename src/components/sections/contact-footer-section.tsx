@@ -40,36 +40,35 @@ const SOCIAL_CHANNELS: SocialChannel[] = [
     ),
   },
   {
-    id: "behance",
-    name: "Behance",
-    url: "https://behance.net",
-    icon: (
-      <div className="font-primary font-bold text-xl sm:text-2xl tracking-tighter">
-        <span>Bē</span>
-      </div>
-    ),
-  },
-  {
-    id: "dribbble",
-    name: "Dribbble",
-    url: "https://dribbble.com",
+    id: "instagram",
+    name: "Instagram",
+    url: "https://instagram.com",
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" />
-        <path d="M21.75 12.84c-6.62-1.41-12.14 1-14.7 7.07" />
-        <path d="M8.53 2.74c3.67 4.95 5.61 10.93 6.36 18.52" />
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="18" cy="6" r="1" fill="currentColor" />
       </svg>
     ),
   },
   {
-    id: "awwwards",
-    name: "Awwwards",
-    url: "https://awwwards.com",
+    id: "youtube",
+    name: "YouTube",
+    url: "https://youtube.com",
     icon: (
-      <div className="font-serif font-black text-xl sm:text-2xl tracking-tight">
-        <span>W.</span>
-      </div>
+      <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
+  {
+    id: "vimeo",
+    name: "Vimeo",
+    url: "https://vimeo.com",
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.525 3.01 7.525c-.179 0-.806.378-1.881 1.131L0 7.241c1.168-1.026 2.474-2.054 3.921-3.08 1.956-1.37 3.416-2.112 4.38-2.227 2.302-.224 3.729 1.328 4.28 4.657.587 3.587 1.009 5.82 1.268 6.699.78 2.646 1.636 3.971 2.569 3.971.728 0 1.614-.847 2.656-2.54 1.042-1.693 1.597-2.977 1.666-3.854.14-1.442-.407-2.164-1.642-2.164-.593 0-1.205.137-1.839.412 1.23-4.043 3.57-6.002 7.021-5.875 2.553.09 3.755 1.503 3.606 4.238z" />
+      </svg>
     ),
   },
 ];

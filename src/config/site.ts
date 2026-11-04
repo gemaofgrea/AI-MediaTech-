@@ -18,6 +18,9 @@ export interface SiteConfig {
     github: string;
     instagram?: string;
     vimeo?: string;
+    youtube?: string;
+    linkedin?: string;
+    x?: string;
   };
   mainNav: NavItem[];
 }
@@ -34,6 +37,9 @@ export const siteConfig: SiteConfig = {
     github: "https://github.com",
     instagram: "https://instagram.com",
     vimeo: "https://vimeo.com",
+    youtube: "https://youtube.com",
+    linkedin: "https://linkedin.com",
+    x: "https://x.com",
   },
   mainNav: [
     {
