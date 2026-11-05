@@ -103,7 +103,7 @@ export function FloatingDock({ onOpenInquiry }: FloatingDockProps) {
         }}
         className={`font-primary will-change-transform ${
           isScrolled
-            ? "flex items-center gap-3 px-3 py-1.5 rounded-[22px] bg-transparent border border-white/15 backdrop-blur-md shadow-lg mx-auto w-fit"
+            ? "flex items-center gap-2.5 sm:gap-3 px-3.5 py-1.5 rounded-full bg-black/80 border border-white/15 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.7)] mx-auto w-fit"
             : "w-full bg-transparent border-none shadow-none"
         }`}
       >

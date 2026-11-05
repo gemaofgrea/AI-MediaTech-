@@ -32,11 +32,14 @@ export function TopHeader({ onOpenLeadsHud }: TopHeaderProps) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-bold text-xs text-lime-400 group-hover:border-white/30 transition-colors">
-            AI
+          <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:border-lime-400/40 transition-colors">
+            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none">
+              <path d="M4 3h16l-4.5 6 4.5 6H4V3z" fill="white" />
+              <line x1="8" y1="3" x2="8" y2="15" stroke="#a3e635" strokeWidth="1.8" />
+            </svg>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="font-semibold text-sm tracking-tight text-white">
+            <span className="font-semibold text-sm tracking-tight text-white group-hover:text-lime-300 transition-colors">
               AI MediaTech
             </span>
             <span className="font-mono-code text-[11px] text-zinc-500 hidden sm:inline">
@@ -68,10 +71,10 @@ export function TopHeader({ onOpenLeadsHud }: TopHeaderProps) {
 
           <a
             href="#contact"
-            className="flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-white text-zinc-950 font-medium text-xs hover:bg-zinc-200 transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-lime-400 hover:bg-lime-300 text-black font-medium text-xs shadow-[0_0_15px_rgba(163,230,53,0.3)] transition-all cursor-pointer"
           >
             <span>Commission Brief</span>
-            <ArrowUpRight className="w-3 h-3" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
