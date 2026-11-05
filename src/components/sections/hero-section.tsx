@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { GreenRibbedCurtain } from "@/components/canvas/green-ribbed-curtain";
 
 import { Magnetic } from "@/components/ui/magnetic";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface HeroSectionProps {
   onOpenShowreel?: () => void;
@@ -101,9 +102,10 @@ export function HeroSection({ onOpenShowreel, onOpenLeadsHud, onOpenInquiry }: H
           </Magnetic>
         </div>
 
-        {/* Right Corner: Minimal Studio Worldwide Availability Badge */}
-        <div className="w-32 sm:w-48 flex justify-end items-center flex-shrink-0">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-black/35 backdrop-blur-sm text-zinc-400 font-mono-code text-[11px] tracking-wider uppercase">
+        {/* Right Corner: Minimal Studio Worldwide Availability Badge & Theme Toggle */}
+        <div className="flex justify-end items-center gap-2 flex-shrink-0">
+          <ThemeToggle />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 rounded-full border border-white/10 bg-black/35 backdrop-blur-sm text-zinc-400 font-mono-code text-[10px] sm:text-[11px] tracking-wider uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="hidden sm:inline">Worldwide</span>
             <span className="sm:hidden">Live</span>

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --font-heading: 'Lausanne', 'TWK Lausanne', 'Inter', -apple-system, sans-serif;
@@ -139,3 +141,285 @@ body {
 .bar-2 { animation: audioPulse 1.2s ease-in-out infinite 0.2s; }
 .bar-3 { animation: audioPulse 0.7s ease-in-out infinite 0.4s; }
 .bar-4 { animation: audioPulse 1.4s ease-in-out infinite 0.1s; }
+
+
+/* =============================================================
+   LIGHT / DARK THEME SYSTEM & HIGH-PRECISION OVERRIDES
+   ============================================================= */
+
+/* Global transition when toggling */
+html {
+  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Light Mode Styles */
+html.light {
+  color-scheme: light;
+  background-color: #f7f7fa;
+}
+
+html.light body {
+  background-color: #f7f7fa;
+  color: #0c0d12;
+}
+
+/* Light Mode Backgrounds: Root & Section containers */
+html.light main,
+html.light section,
+html.light footer,
+html.light .bg-\[\#09090b\],
+html.light .bg-\[\#070709\],
+html.light .bg-\[\#050507\],
+html.light .bg-\[\#040406\],
+html.light .bg-\[\#020602\],
+html.light .bg-\[\#0c0c0e\] {
+  background-color: #f7f7fa !important;
+}
+
+/* Light Mode Backgrounds: Cards, Modals & Elevated Surfaces */
+html.light .bg-\[\#08090d\],
+html.light .bg-\[\#0c0d11\],
+html.light .bg-\[\#0d0d10\],
+html.light .bg-\[\#0d0e13\],
+html.light .bg-\[\#0f1016\],
+html.light .bg-\[\#101014\],
+html.light .bg-\[\#101217\],
+html.light .bg-\[\#111114\],
+html.light .bg-\[\#111117\],
+html.light .bg-\[\#111218\],
+html.light .bg-\[\#171922\],
+html.light .bg-zinc-950,
+html.light .bg-zinc-900,
+html.light .atelier-card,
+html.light .atelier-card-elevated {
+  background-color: #ffffff !important;
+}
+
+/* Header & Navigation blur overlays */
+html.light header {
+  background-color: rgba(247, 247, 250, 0.88) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Light Mode Text Palette */
+html.light .text-white,
+html.light .text-\[\#f4f4f5\],
+html.light .text-\[\#f4f3ef\] {
+  color: #0c0d12 !important;
+}
+
+html.light .text-zinc-200,
+html.light .text-zinc-300 {
+  color: #1f2024 !important;
+}
+
+html.light .text-zinc-400,
+html.light .text-zinc-500,
+html.light .text-\[\#8a8a8a\] {
+  color: #52525b !important;
+}
+
+html.light .text-zinc-600 {
+  color: #71717a !important;
+}
+
+/* Hover text adjustments */
+html.light .hover\:text-white:hover,
+html.light .group:hover .group-hover\:text-white,
+html.light .group-hover\:text-white:hover {
+  color: #0c0d12 !important;
+}
+
+html.light .group:hover .group-hover\:text-zinc-200,
+html.light .group:hover .group-hover\:text-zinc-300 {
+  color: #27272a !important;
+}
+
+/* Light Mode Hairline Borders */
+html.light .border-white\/\[0\.04\],
+html.light .border-white\/\[0\.06\],
+html.light .border-white\/\[0\.08\],
+html.light .border-white\/\[0\.1\],
+html.light .border-white\/\[0\.12\],
+html.light .border-white\/\[0\.15\],
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/30,
+html.light .hairline-border,
+html.light .hairline-border-t,
+html.light .hairline-border-b {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .hover\:border-white\/20:hover,
+html.light .hover\:border-white\/25:hover,
+html.light .hover\:border-white\/30:hover,
+html.light .group:hover .group-hover\:border-white\/25,
+html.light .group:hover .group-hover\:border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Light Mode Subtle Badges and Pills */
+html.light .bg-white\/\[0\.02\],
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.08\],
+html.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+  color: #1f2024 !important;
+}
+
+html.light .hover\:bg-white\/10:hover,
+html.light .hover\:bg-white\/20:hover {
+  background-color: rgba(0, 0, 0, 0.065) !important;
+}
+
+html.light .bg-black\/15,
+html.light .bg-black\/25,
+html.light .bg-black\/35,
+html.light .bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  color: #0c0d12 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Floating Dock in Light Mode */
+html.light div[aria-label="Navigation Dock"] .bg-black\/80,
+html.light div[aria-label="Navigation Dock"] .backdrop-blur-xl {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light div[aria-label="Navigation Dock"] a,
+html.light div[aria-label="Navigation Dock"] button {
+  color: #0c0d12 !important;
+}
+
+html.light div[aria-label="Navigation Dock"] .bg-white\/\[0\.14\] {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  color: #0c0d12 !important;
+}
+
+html.light div[aria-label="Navigation Dock"] .bg-white\/\[0\.06\]:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Brand Emblem Swallowtail SVG */
+html.light path[fill="white"],
+html.light path[fill="#ffffff"] {
+  fill: #0c0d12 !important;
+}
+
+/* Hero Section Primary Commission Button in Light Mode */
+html.light section[class*="perspective"] button[class*="border-white/70"] {
+  background-color: #0c0d12 !important;
+  color: #ffffff !important;
+  border-color: #0c0d12 !important;
+}
+
+/* Hero Section Green Curtain Soft Blend in Light Mode */
+html.light section[class*="perspective"]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(247, 247, 250, 0) 0%, rgba(247, 247, 250, 0.85) 60%, #f7f7fa 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Prevent Video / Image distortion */
+html.light video,
+html.light img {
+  filter: none !important;
+}
+
+/* Custom Scrollbar for Light Mode */
+html.light ::-webkit-scrollbar-track {
+  background: #f1f1f4;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+
+/* Light Mode Testimonials Stack Section */
+html.light #testimonials,
+html.light section[id="testimonials"] {
+  background-color: #f7f7fa !important;
+}
+
+html.light .testimonial-card,
+html.light #testimonials .bg-\[\#121214\],
+html.light .bg-\[\#121214\],
+html.light .bg-\[\#161619\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .testimonial-card:hover {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 0 22px 55px -10px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .testimonial-quote,
+html.light #testimonials .text-white {
+  color: #0c0d12 !important;
+}
+
+html.light .testimonial-author {
+  color: #0c0d12 !important;
+}
+
+html.light .testimonial-role,
+html.light #testimonials .text-\[\#8a8a8a\] {
+  color: #64748b !important;
+}
+
+html.light .testimonial-footer,
+html.light #testimonials .border-white\/\[0\.08\] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* Light Mode Opacity Text Overrides & Metrics Polish */
+html.light .text-white\/30,
+html.light .text-white\/40,
+html.light .text-white\/50 {
+  color: #64748b !important;
+}
+
+html.light .text-white\/60,
+html.light .text-white\/70 {
+  color: #475569 !important;
+}
+
+html.light .text-white\/80,
+html.light .text-white\/90 {
+  color: #1e293b !important;
+}
+
+
+/* Metrics Section Explicit Light Mode Rules */
+html.light .metric-number {
+  color: #0c0d12 !important;
+}
+
+html.light .metric-unit {
+  color: #475569 !important;
+}
+
+html.light .metric-desc {
+  color: #475569 !important;
+}

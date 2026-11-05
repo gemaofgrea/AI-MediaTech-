@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Database, Clock } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface TopHeaderProps {
   onOpenLeadsHud: () => void;
@@ -68,6 +69,8 @@ export function TopHeader({ onOpenLeadsHud }: TopHeaderProps) {
             <Database className="w-3 h-3 text-emerald-400" />
             <span>Leads DB</span>
           </button>
+
+          <ThemeToggle />
 
           <a
             href="#contact"

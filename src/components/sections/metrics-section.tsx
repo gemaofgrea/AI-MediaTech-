@@ -82,8 +82,8 @@ function CountingNumber({ value, suffix = "", isActive }: CountingNumberProps) {
   return (
     <span
       ref={ref}
-      className={`font-primary text-7xl sm:text-8xl md:text-9xl font-normal tracking-[-0.035em] block transition-colors duration-150 tabular-nums ${
-        isActive ? "text-black" : "text-white"
+      className={`metric-number font-primary text-7xl sm:text-8xl md:text-9xl font-normal tracking-[-0.035em] block transition-colors duration-150 tabular-nums ${
+        isActive ? "!text-black" : "text-black dark:text-white"
       }`}
     >
       0{suffix}
@@ -106,7 +106,7 @@ export function MetricsSection() {
       <div className="max-w-[1400px] mx-auto w-full">
         {/* 4 Metrics Columns Grid (Animated staggered reveal & count animation) */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative border-l border-r border-white/[0.08]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative border-l border-r border-black/[0.08] dark:border-white/[0.08]"
           onMouseLeave={() => setHoveredIdx(null)}
         >
           {METRICS.map((item, idx) => {
@@ -125,7 +125,7 @@ export function MetricsSection() {
                 }}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 className={`relative min-h-[340px] sm:min-h-[380px] p-8 sm:p-9 flex flex-col justify-between transition-colors duration-200 cursor-pointer ${
-                  idx !== 0 ? "border-t sm:border-t-0 sm:border-l border-white/[0.08]" : ""
+                  idx !== 0 ? "border-t sm:border-t-0 sm:border-l border-black/[0.08] dark:border-white/[0.08]" : ""
                 }`}
               >
                 {/* Active Highlight Background: Only active when hovering */}
@@ -149,8 +149,8 @@ export function MetricsSection() {
                   className="relative z-10 w-full flex justify-end"
                 >
                   <span
-                    className={`font-primary text-xs sm:text-sm font-medium transition-colors duration-150 ${
-                      isActive ? "text-black/80 font-semibold" : "text-white/60"
+                    className={`metric-unit font-primary text-xs sm:text-sm font-medium transition-colors duration-150 ${
+                      isActive ? "!text-black/80 font-semibold" : "text-zinc-600 dark:text-white/60"
                     }`}
                   >
                     {item.unit}
@@ -177,8 +177,8 @@ export function MetricsSection() {
                   className="relative z-10 pt-4"
                 >
                   <p
-                    className={`font-primary text-xs sm:text-[13px] leading-relaxed max-w-[210px] transition-colors duration-150 ${
-                      isActive ? "text-black/85 font-medium" : "text-white/50"
+                    className={`metric-desc font-primary text-xs sm:text-[13px] leading-relaxed max-w-[210px] transition-colors duration-150 ${
+                      isActive ? "!text-black/85 font-medium" : "text-zinc-600 dark:text-white/50"
                     }`}
                   >
                     {contextMode === "original" ? item.description : item.mediaDescription}

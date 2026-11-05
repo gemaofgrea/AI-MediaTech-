@@ -136,19 +136,19 @@ function ScrollCard({
       whileHover={{ y: -4, scale: 1.01 }}
       transition={{ duration: 0.25 }}
       onClick={onCardClick}
-      className="absolute inset-0 rounded-2xl sm:rounded-[24px] bg-[#121214] border border-white/[0.12] p-8 sm:p-10 md:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.75)] backdrop-blur-md cursor-pointer hover:border-white/25 transition-colors duration-300 flex flex-col justify-between will-change-transform"
+      className="testimonial-card absolute inset-0 rounded-2xl sm:rounded-[24px] bg-[#121214] border border-white/[0.12] p-8 sm:p-10 md:p-12 shadow-[0_25px_60px_rgba(0,0,0,0.75)] backdrop-blur-md cursor-pointer hover:border-white/25 transition-all duration-300 flex flex-col justify-between will-change-transform"
     >
-      {/* Testimonial Quote Text matching screenshot 1:1 */}
+      {/* Testimonial Quote Text */}
       <div className="flex-1 flex items-start pt-2">
-        <p className="font-primary text-base sm:text-lg md:text-[1.2rem] text-white font-normal leading-[1.48] tracking-tight">
+        <p className="testimonial-quote font-primary text-base sm:text-lg md:text-[1.2rem] text-white font-normal leading-[1.48] tracking-tight">
           {item.quote}
         </p>
       </div>
 
       {/* Author Attribution Footer */}
-      <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center font-primary text-xs sm:text-[13px] md:text-sm">
-        <span className="font-semibold text-white mr-1.5">{item.author}</span>
-        <span className="text-[#8a8a8a] font-normal">
+      <div className="testimonial-footer pt-6 mt-6 border-t border-white/[0.08] flex items-center font-primary text-xs sm:text-[13px] md:text-sm">
+        <span className="testimonial-author font-semibold text-white mr-1.5">{item.author}</span>
+        <span className="testimonial-role text-[#8a8a8a] font-normal">
           - {item.role} {item.company}
         </span>
       </div>

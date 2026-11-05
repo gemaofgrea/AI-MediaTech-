@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Magnetic } from "@/components/ui/magnetic";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface FloatingDockProps {
   onOpenLeadsHud?: () => void;
@@ -162,8 +163,8 @@ export function FloatingDock({ onOpenInquiry }: FloatingDockProps) {
                   </Magnetic>
                 </div>
 
-                {/* Col 4: Let's talk ↗ */}
-                <div className="col-span-1 text-right">
+                {/* Col 4: Let's talk ↗ & Theme Toggle */}
+                <div className="col-span-1 flex items-center justify-end gap-3">
                   <Magnetic strength={0.35}>
                     <button
                       onClick={() => {
@@ -180,6 +181,7 @@ export function FloatingDock({ onOpenInquiry }: FloatingDockProps) {
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                   </Magnetic>
+                  <ThemeToggle />
                 </div>
               </div>
             </motion.div>
@@ -243,6 +245,9 @@ export function FloatingDock({ onOpenInquiry }: FloatingDockProps) {
                   <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
                 </motion.button>
               </Magnetic>
+
+              {/* Theme Toggle Button */}
+              <ThemeToggle className="ml-0.5" />
             </motion.div>
           )}
         </AnimatePresence>
